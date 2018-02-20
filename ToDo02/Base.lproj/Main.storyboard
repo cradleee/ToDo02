@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="863" y="133"/>
         </scene>
-        <!--Memo View Controller-->
+        <!--Title-->
         <scene sceneID="UhL-t6-eiT">
             <objects>
                 <viewController id="TSF-7c-ea6" customClass="MemoViewController" customModule="ToDo02" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,6 +79,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NEx-e6-ors"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Wpe-L1-26T">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mXc-ig-eA2"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke4-KZ-dd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,11 +8,13 @@
 
 import UIKit
 
-class MemoViewController: UIViewController {
+class MemoViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var contentTextView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +23,10 @@ class MemoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func saveMemo() {
+        
+    }
+    
     /*
     // MARK: - Navigation
 
