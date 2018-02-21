@@ -14,6 +14,8 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var contentTextView: UITextView!
     
     var saveDate: UserDefaults = UserDefaults.standard
+    var memoArray = [String] ()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
