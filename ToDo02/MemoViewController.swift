@@ -11,17 +11,17 @@ import UIKit
 class MemoViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var contentTextView: UITextView!
+
+    var todoArray: [String] = []
     
     var saveDate: UserDefaults = UserDefaults.standard
-    var memoArray = [String] ()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleTextField.text = saveDate.object(forKey: "title") as? String
-        contentTextView.text = saveDate.object(forKey: "content") as? String
+        titleTextField.text = saveDate.object(forKey: "todo") as? String
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,8 +31,9 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
     //#007メモ帳　p.２５
     @IBAction func saveMemo() {
         //UserDefaultsに書き込み
-        saveDate.set(titleTextField.text, forKey: "title")
-        saveDate.set(contentTextView.text, forKey: "content")
+        todoArray.append(titleTextField.text!)
+        saveDate.set(todoArray, forKey: "todo")
+        
         
         //alertを出す
         let alert: UIAlertController = UIAlertController(title: "保存", message:"メモの保存が完了しました。",
