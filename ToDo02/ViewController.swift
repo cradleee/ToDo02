@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     
     //Storyboardで扱うTableViewを宣言
     @IBOutlet var table: UITableView!
+    @IBOutlet var textField: UITextField!
     
 
 
@@ -33,14 +34,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
+    //セクションの数
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
-    //ID付きのセルを取得して、セル付属のtextLabelに「テスト」と表示させてみる　//★ここを変えるのかな！
+    //セルの内容を決める。
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell?.textLabel?.text = "テスト"
+        return cell
+    }
+    //returnキーを押した時の処理？
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
         
-        return cell!
+        self.textField.text = ""
+        return true
     }
 
 }
