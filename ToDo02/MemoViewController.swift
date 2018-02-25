@@ -15,11 +15,11 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
     var todoArray: [String] = []
     
     var saveDate: UserDefaults = UserDefaults.standard
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleTextField.delegate = self
         titleTextField.text = saveDate.object(forKey: "todo") as? String
     
     }

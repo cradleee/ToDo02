@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource{
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource{
     
     //Storyboardで扱うTableViewを宣言
     @IBOutlet var table: UITableView!
@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource{
         
         //テーブルビューのデータソースメソッドはViewControllerクラスに書くよ、という設定
         table.dataSource = self
+
+        
     }
 
     override func didReceiveMemoryWarning() {
