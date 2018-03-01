@@ -27,6 +27,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         if let aaa = userDefaults.object(forKey: "todos") {
             todos = aaa as! [String]
         }
+        
+        self.tableView.reloadData() //データをリロードする
+    
     }
     
     override func viewDidLoad() {
