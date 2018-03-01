@@ -14,14 +14,21 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
 
     var todoArray: [String] = []
     
-    let saveDate: UserDefaults = UserDefaults.standard
-    let userDefaults = UserDefaults.standard
+    let saveData: UserDefaults = UserDefaults.standard
+//    let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //まずsaveDataの中にtodoarrayがあるか確認してなかったら、todoArrayを作成。あったら、todoArrayをsaveDataから取り出す。
+        if saveData.object(forKey: "todos") == nil {
+            return
+        }else{
+            todoArray = saveData.object(forKey: "todos") as! [String]
+        }
+        
         titleTextField.delegate = self
-        titleTextField.text = saveDate.object(forKey: "todo") as? String
+        titleTextField.text = saveData.object(forKey: "todos") as? String
     
     }
 
@@ -33,7 +40,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveMemo() {
         //UserDefaultsに書き込み
         todoArray.append(titleTextField.text!)
-        saveDate.set(todoArray, forKey: "todo")
+        saveData.set(todoArray, forKey: "todos")
         
         
         //alertを出す

@@ -12,14 +12,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     
     //Storyboardで扱うTableViewを宣言
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var textField: UITextField!
+    //@IBOutlet var textField: UITextField!
     
     var todos: [String] = []
     
     let userDefaults = UserDefaults.standard
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         //テーブルビューのデータソースメソッドはViewControllerクラスに書くよ、という設定
         tableView.dataSource = self
@@ -27,6 +27,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         if let aaa = userDefaults.object(forKey: "todos") {
             todos = aaa as! [String]
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+      
         
     }
 
@@ -50,24 +55,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         
         let todo = todos[indexPath.row]
         
+        
         cell.textLabel?.text = todo
         
         return cell
     }
-    //returnキーを押した時の処理？
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        if let text = self.textField.text {
-            todos.append(text)
-            userDefaults.set(todos, forKey: "todos")
-            userDefaults.synchronize()
-            
-            todos = userDefaults.object(forKey: "todos") as! [String]
-        }
-        
-        self.textField.text = ""
-        
-        self.tableView.reloadData() //データをリロードする
-        return true
-    }
+  
 
 }
