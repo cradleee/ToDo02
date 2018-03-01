@@ -14,7 +14,8 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
 
     var todoArray: [String] = []
     
-    var saveDate: UserDefaults = UserDefaults.standard
+    let saveDate: UserDefaults = UserDefaults.standard
+    let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
