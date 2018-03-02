@@ -68,9 +68,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         if editingStyle == .delete {
             todos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            userDefaults.set(todos, forKey: "todos")
             }
+        
+
     }
-//   
+//
 //    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 //
 //        let deleteButton: UITableViewRowAction = UITableViewRowAction(style:.normal, title: "削除") { (action,index) -> Void in
