@@ -64,23 +64,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         return cell
     }
     //削除機能
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            todos.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//            }
-//    }
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let deleteButton: UITableViewRowAction = UITableViewRowAction(style:.normal, title: "削除") { (action,index) -> Void in
-            self.todos.remove(at: indexPath.row)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            todos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        deleteButton.backgroundColor = UIColor.red
-        
-        return [deleteButton]
+            }
     }
+//   
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//
+//        let deleteButton: UITableViewRowAction = UITableViewRowAction(style:.normal, title: "削除") { (action,index) -> Void in
+//            self.todos.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//        deleteButton.backgroundColor = UIColor.red
+//
+//        return [deleteButton]
+//    }
   
 
 }
