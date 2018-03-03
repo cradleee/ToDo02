@@ -13,7 +13,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var titleTextField: UITextField!
 
     var todoArray: [String] = []
-
+    var recieveValue: String!
     
     let saveData: UserDefaults = UserDefaults.standard
 
@@ -30,6 +30,10 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
         
         titleTextField.delegate = self
         titleTextField.text = saveData.object(forKey: "todos") as? String
+        
+        if recieveValue != nil {
+            print(recieveValue)
+        }
     
     }
 

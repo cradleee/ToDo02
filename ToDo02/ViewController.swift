@@ -12,10 +12,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     
     //Storyboardで扱うTableViewを宣言
     @IBOutlet var tableView: UITableView!
-    //@IBOutlet var textField: UITextField!
     
     var todos: [String] = []
     var recieveValue: Double!
+    var value: String!
     
     let userDefaults = UserDefaults.standard
 
@@ -71,25 +71,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath], with: .fade)
             userDefaults.set(todos, forKey: "todos")
             }
-    
+    }
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
-            let viewController: ViewController =
-                            segue.destination as! ViewController
-           viewController.reciveValue = self.value
-        
-            let ViewController: ViewController =
-                            segue.destination as! ViewController
-            
-            viewController.recieveValue = self.value
+            let memoviewController: MemoViewController =
+                            segue.destination as! MemoViewController
+            memoviewController.recieveValue = self.value
             
         }
-        
-
-    
-        
-
-    }
 //
 //    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 //
