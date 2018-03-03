@@ -13,10 +13,10 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var titleTextField: UITextField!
 
     var todoArray: [String] = []
-    var editRow: Int = -1
+//    var editRow: Int = -1
     
     let saveData: UserDefaults = UserDefaults.standard
-//    let userDefaults = UserDefaults.standard
+//  let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,33 +40,29 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
     //#007メモ帳　p.２５
     @IBAction func saveMemo() {
         //UserDefaultsに書き込み
-        //todoArray.append(titleTextField.text!)
-        //saveData.set(todoArray, forKey: "todos")
+        todoArray.append(titleTextField.text!)
+        saveData.set(todoArray, forKey: "todos")
         
         if titleTextField.text == nil {
             return
         }
-        
-        if editRow == -1 {
-            print(todoArray)
-            todoArray.append(titleTextField.text!)
-            saveData.set(todoArray, forKey: "todos")
-            editRow = -1
-        }else{ //既存のメモの編集
-            todoArray[editRow] = titleTextField.text!
-            saveData.set(todoArray, forKey: "todos")
-            editRow = -1
-        }
-        
-        //前の画面へ遷移
-        editRow = -1
-        saveData.removeObject(forKey: "todos")
-        self.dismiss(animated: true, completion: nil)
-        
-        
-        
-        
-        
+//
+//        if editRow == -1 {
+//            print(todoArray)
+//            todoArray.append(titleTextField.text!)
+//            saveData.set(todoArray, forKey: "todos")
+//            editRow = -1
+//        }else{ //既存のメモの編集
+//            todoArray[editRow] = titleTextField.text!
+//            saveData.set(todoArray, forKey: "todos")
+//            editRow = -1
+//        }
+//
+//        //前の画面へ遷移
+//        editRow = -1
+//        saveData.removeObject(forKey: "todos")
+//        self.dismiss(animated: true, completion: nil)
+//
         //alertを出す
         let alert: UIAlertController = UIAlertController(title: "保存", message:"メモの保存が完了しました。",
                                                          preferredStyle: .alert)

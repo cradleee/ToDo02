@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     //@IBOutlet var textField: UITextField!
     
     var todos: [String] = []
-    var editRow: Int = -1
+//    var editRow: Int = -1
     
     let userDefaults = UserDefaults.standard
 
@@ -72,11 +72,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             userDefaults.set(todos, forKey: "todos")
             }
         
-    //既存のテキストの内容を編集機能
-        func tableView(_tableView:UITableView, didSelectRowAt indexpath: IndexPath) {
-            editRow = indexPath.row
-            UserDefaults.set(editRow, forkey :"todos")
-        }
+//    既存のテキストの内容を編集機能
+//        func tableView(_tableView:UITableView, didSelectRowAt indexpath: IndexPath) {
+//            editRow = indexPath.row
+//            UserDefaults.set(editRow, forkey :"todos")
+//        }
     
         
 
