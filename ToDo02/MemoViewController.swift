@@ -13,10 +13,10 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var titleTextField: UITextField!
 
     var todoArray: [String] = []
-//    var editRow: Int = -1
+
     
     let saveData: UserDefaults = UserDefaults.standard
-//  let userDefaults = UserDefaults.standard
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,23 +46,8 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
         if titleTextField.text == nil {
             return
         }
-//
-//        if editRow == -1 {
-//            print(todoArray)
-//            todoArray.append(titleTextField.text!)
-//            saveData.set(todoArray, forKey: "todos")
-//            editRow = -1
-//        }else{ //既存のメモの編集
-//            todoArray[editRow] = titleTextField.text!
-//            saveData.set(todoArray, forKey: "todos")
-//            editRow = -1
-//        }
-//
-//        //前の画面へ遷移
-//        editRow = -1
-//        saveData.removeObject(forKey: "todos")
-//        self.dismiss(animated: true, completion: nil)
-//
+
+
         //alertを出す
         let alert: UIAlertController = UIAlertController(title: "保存", message:"メモの保存が完了しました。",
                                                          preferredStyle: .alert)
@@ -82,15 +67,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
                 )
         present(alert, animated: true, completion: nil)
     }
-    
-    //画面遷移
-    //override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //var MemoViewController:MemoViewController = segue.destinationViewController as
-    //MemoViewController.param = self.paramText.text
-    //}
-    
-    //func shouldPerformSegue(withIdentifier: String?, sender: AnyObject?)
-    //return true
+   
     
     /*
     // MARK: - Navigation

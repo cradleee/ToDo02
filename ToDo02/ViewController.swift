@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource{
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
     
     //Storyboardで扱うTableViewを宣言
     @IBOutlet var tableView: UITableView!
     //@IBOutlet var textField: UITextField!
     
     var todos: [String] = []
-//    var editRow: Int = -1
+    var recieveValue: Double!
     
     let userDefaults = UserDefaults.standard
 
@@ -71,12 +71,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath], with: .fade)
             userDefaults.set(todos, forKey: "todos")
             }
+    
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            let viewController: ViewController =
+                            segue.destination as! ViewController
+           viewController.reciveValue = self.value
         
-//    既存のテキストの内容を編集機能
-//        func tableView(_tableView:UITableView, didSelectRowAt indexpath: IndexPath) {
-//            editRow = indexPath.row
-//            UserDefaults.set(editRow, forkey :"todos")
-//        }
+            let ViewController: ViewController =
+                            segue.destination as! ViewController
+            
+            viewController.recieveValue = self.value
+            
+        }
+        
+
     
         
 
