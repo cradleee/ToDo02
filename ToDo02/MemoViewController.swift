@@ -23,7 +23,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
         
         //まずsaveDataの中にtodoarrayがあるか確認してなかったら、todoArrayを作成。あったら、todoArrayをsaveDataから取り出す。
         if saveData.object(forKey: "todos") == nil {
-            return
+            //return
         }else{
             todoArray = saveData.object(forKey: "todos") as! [String]
         }
@@ -48,7 +48,7 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
         saveData.set(todoArray, forKey: "todos")
         
         if titleTextField.text == nil {
-            return
+            //return
         }
 
 
