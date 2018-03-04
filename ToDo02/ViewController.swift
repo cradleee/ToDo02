@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     
     //Storyboardで扱うTableViewを宣言
     @IBOutlet var tableView: UITableView!
@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         
         //テーブルビューのデータソースメソッドはViewControllerクラスに書くよ、という設定
         tableView.dataSource = self
+        tableView.delegate = self
+        
         
         if let aaa = userDefaults.object(forKey: "todos") {
             todos = aaa as! [String]
@@ -44,6 +46,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    //セルを呼び出す
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("todos")
+        self.value = todos[indexPath.row]
+        performSegue(withIdentifier: "ViewController", sender: self.value)
+        
+        tableView.deselectRow(at:indexPath, animated: true)
+    }
+
     //セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
@@ -72,24 +83,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             userDefaults.set(todos, forKey: "todos")
             }
     }
+
+    
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
             let memoviewController: MemoViewController =
                             segue.destination as! MemoViewController
-            memoviewController.recieveValue = self.value
+            memoviewController.recieveValue = sender as? String
             
+            
+
         }
-//
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//
-//        let deleteButton: UITableViewRowAction = UITableViewRowAction(style:.normal, title: "削除") { (action,index) -> Void in
-//            self.todos.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//        deleteButton.backgroundColor = UIColor.red
-//
-//        return [deleteButton]
-//    }
-  
+
 
 }

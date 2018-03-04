@@ -30,9 +30,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="TSF-7c-ea6" kind="show" id="HaN-X4-r0N"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -49,11 +46,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="zAe-bt-gFV" id="Vqr-mx-QbH"/>
+                        <segue destination="TSF-7c-ea6" kind="show" identifier="ViewController" id="QhH-7L-81a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="133"/>
+            <point key="canvasLocation" x="871" y="133"/>
         </scene>
         <!--Title-->
         <scene sceneID="UhL-t6-eiT">
@@ -111,6 +109,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HaN-X4-r0N"/>
+        <segue reference="QhH-7L-81a"/>
     </inferredMetricsTieBreakers>
 </document>

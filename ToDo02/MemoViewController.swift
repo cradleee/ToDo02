@@ -31,8 +31,10 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
         titleTextField.delegate = self
         titleTextField.text = saveData.object(forKey: "todos") as? String
         
+        
         if recieveValue != nil {
             print(recieveValue)
+            titleTextField.text = recieveValue
         }
     
     }
@@ -44,13 +46,21 @@ class MemoViewController: UIViewController, UITextFieldDelegate {
     //#007メモ帳　p.２５
     @IBAction func saveMemo() {
         //UserDefaultsに書き込み
-        todoArray.append(titleTextField.text!)
-        saveData.set(todoArray, forKey: "todos")
+        
+        if recieveValue == nil {
+            todoArray.append(titleTextField.text!)
+            saveData.set(todoArray, forKey: "todos")
+        }else if recieveValue != nil {
+            let index = todoArray.index(of: recieveValue)
+            todoArray.remove(at: index!)
+            todoArray.insert(titleTextField.text!, at: index!)
+            saveData.set(todoArray, forKey: "todos")
+            
+        }
         
         if titleTextField.text == nil {
             //return
         }
-
 
         //alertを出す
         let alert: UIAlertController = UIAlertController(title: "保存", message:"メモの保存が完了しました。",
